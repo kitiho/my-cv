@@ -1,0 +1,135 @@
+@import "./variables";
+//reset
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+html {
+  font-size: 18px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2em;
+  font-family: "Montserrat", arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #999;
+}
+p {
+  line-height: 1.5em;
+}
+//text
+//靠左 居中 靠右
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var !important;
+  }
+}
+//文字颜色
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+}
+//文字省略
+.text-omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//背景颜色
+@each $colorKey, $color in $colors {
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+//文字尺寸大小
+@each $sizeKey, $size in $sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size * $base-font-size;
+  }
+}
+.fs-bold {
+  font-weight: 800;
+}
+.fs-light {
+  font-weight: lighter;
+}
+//flex布局
+.d-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-1 {
+  flex: 1;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+//justify-content属性
+@each $k, $v in $jc {
+  .jc-#{$k} {
+    justify-content: $v;
+  }
+}
+//justify-content属性
+@each $k, $v in $ai {
+  .ai-#{$k} {
+    align-items: $v;
+  }
+}
+
+//边距
+@each $typeKey, $type in $spacing-types {
+  @each $sizeKey, $size in $spacing-sizes {
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $base-spacing-size;
+    }
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-left: $size * $base-spacing-size;
+      #{$type}-right: $size * $base-spacing-size;
+    }
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top: $size * $base-spacing-size;
+      #{$type}-bottom: $size * $base-spacing-size;
+    }
+  }
+  @each $directionKey, $direction in $spacing-direction {
+    @each $sizeKey, $size in $spacing-sizes {
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction}: $size * $base-spacing-size;
+      }
+    }
+  }
+}
+//width 100%
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+.h-3 {
+  height: 6rem;
+}
+
+.bb {
+  border-bottom: 1px solid map-get($map: $colors, $key: "grey-border");
+}
+
+.arrow {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  transform: rotate(-90deg);
+}
+.cursor {
+  cursor: pointer;
+}
