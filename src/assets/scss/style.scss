@@ -133,3 +133,27 @@ p {
 .cursor {
   cursor: pointer;
 }
+
+.Nav-enter-active {
+  transition: all 0.8s ease;
+}
+.Nav-leave-active {
+  transition: all 0.8s ease;
+}
+.Nav-enter, .Nav-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(-2rem);
+  opacity: 0;
+}
+
+.sentence-enter-active {
+    transition: all 0.8s ease;
+  }
+  .sentence-leave-active {
+    transition: all 0.8s ease;
+  }
+  .sentence-enter, .sentence-leave-to
+    /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(-2rem);
+    opacity: 0;
+  }
