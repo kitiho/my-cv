@@ -147,13 +147,54 @@ p {
 }
 
 .sentence-enter-active {
-    transition: all 0.8s ease;
-  }
-  .sentence-leave-active {
-    transition: all 0.8s ease;
-  }
-  .sentence-enter, .sentence-leave-to
+  transition: all 0.8s ease;
+}
+.sentence-leave-active {
+  transition: all 0.8s ease;
+}
+.sentence-enter, .sentence-leave-to
     /* .slide-fade-leave-active for below version 2.1.8 */ {
-    transform: translateX(-2rem);
+  transform: translateX(-2rem);
+  opacity: 0;
+}
+
+@keyframes title {
+  from {
+    transform: translateX(-5rem);
     opacity: 0;
   }
+  to {
+    transform: translateX(0rem);
+    opacity: 100%;
+  }
+}
+@keyframes homepage-bg {
+  from {
+    transform: translateX(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0rem);
+    opacity: 100%;
+  }
+}
+@keyframes homepage-foot {
+  from {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 100%;
+  }
+}
+@keyframes homepage-body {
+  from {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0rem);
+    opacity: 100%;
+  }
+}

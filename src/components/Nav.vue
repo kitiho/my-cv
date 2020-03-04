@@ -1,6 +1,5 @@
 <template>
-  <div class="nav">
-    <div class="mask bg-white"></div>
+  <div class="nav bg-white">
     <div
       class="nav-items fs-bold py-5 fs-lg d-flex flex-column jc-around ai-start px-4"
     >
@@ -10,7 +9,7 @@
       <div
         v-for="(item, i) in navItems"
         :class="activeID === i ? 'active' : ''"
-        @click="activeID = i"
+        @click="changeSite(item, i)"
         @mouseenter="activeID = i"
         :key="i"
         class="px-3 nav-item w-100 h-3 d-flex ai-center"
@@ -45,12 +44,18 @@
 
 <script>
 export default {
-  
   data() {
     return {
       navItems: ["HOME", "WORK", "ABOUT", "CONTACT"],
       activeID: 0
     };
+  },
+  methods: {
+    changeSite(item, i) {
+      this.activeID = i;
+      this.$emit("closeNav");
+      this.$router.push(`/${item}`);
+    }
   }
 };
 </script>
