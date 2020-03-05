@@ -198,3 +198,11 @@ p {
     opacity: 100%;
   }
 }
+@keyframes opacityShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
