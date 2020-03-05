@@ -35,14 +35,14 @@
               style="animation: homepage-foot 1s ease;"
             >
               <span
-                class="py-2"
+                class="pt-1 fs-xs"
                 v-for="(tech, index) in work.techs"
                 :key="index"
                 >{{ index + 1 }}. {{ tech }}</span
               >
             </div>
             <div
-              class="text-white  changePage fs-sm fs-bold d-flex w-100 jc-around ai-center"
+              class="text-white pb-3 changePage fs-sm fs-bold d-flex w-100 jc-around ai-center"
             >
               <div class="cursor" style="animation: homepage-foot 1s ease;">
                 Prev
