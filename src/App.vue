@@ -38,17 +38,18 @@ export default {
 
 
 <style lang="scss">
+#app {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 .toggle {
   width: 70px;
   height: 60px;
   position: fixed;
   top: -20px;
   z-index: 999;
-}
-.nav {
-  position: absolute;
-  top: 0;
-  z-index: 998;
-  transition: all 0.8s ease;
 }
 </style>

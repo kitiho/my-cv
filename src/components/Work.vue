@@ -1,47 +1,67 @@
 <template>
-  <div class="work h-100">
-    <swiper class="swiper w-100 text-white" :options="swiperOption">
-      <swiper-slide
-        class="h-100"
-        :style="work.bgc"
-        v-for="(work, i) in works"
-        :key="i"
-      >
-        <div class="d-flex flex-column pt-5 h-100 ai-center">
-          <div
-            style="animation: title 1s ease;"
-            class="w-100 pt-5 mt-4 d-flex ai-center"
-          >
-            <span class="fs-xs px-4">0{{ i + 1 }}</span>
-            <span class="fs-lg fs-bold">{{ work.title }}</span>
+  <div class="h-100">
+    <div class="work d-flex bg-grey flex-column ai-center jc-around">
+      <swiper class="swiper w-100 flex-1 text-white" :options="swiperOption">
+        <swiper-slide
+          class="h-100 w-100"
+          :style="`background-color:${work.bgc}`"
+          v-for="(work, i) in works"
+          :key="i"
+        >
+          <div class="d-flex flex-column jc-around w-100 h-100 ai-center">
+            <div
+              style="animation: title 1s ease;"
+              class="w-100 d-flex pt-5 ai-center"
+            >
+              <span class="fs-xs px-4">0{{ i + 1 }}</span>
+              <div class="d-flex w-100 h-100 flex-column jc-start ai-start">
+                <span class="fs-lg fs-bold">{{ work.title }}</span>
+                <p
+                  style="display:block;animation: homepage-bg 1s ease;"
+                  class="fs-xs title2 w-100"
+                >
+                  {{ work.desc }}
+                </p>
+              </div>
+            </div>
+            <div
+              class=""
+              style="box-shadow: 0px 12px 10px -9px rgba(0,0,0,0.75);animation: homepage-foot 1s ease;"
+            >
+              <img width="260" src="../assets/swipe111.png" alt="" />
+            </div>
+            <div
+              class="d-flex flex-column ai-center jc-start fs-sm fs-light"
+              style="animation: homepage-foot 1s ease;"
+            >
+              <span
+                class="py-2"
+                v-for="(tech, index) in work.techs"
+                :key="index"
+                >{{ index + 1 }}. {{ tech }}</span
+              >
+            </div>
+            <div
+              class="text-white  changePage fs-sm fs-bold d-flex w-100 jc-around ai-center"
+            >
+              <div class="cursor" style="animation: homepage-foot 1s ease;">
+                Prev
+              </div>
+              <div class="cursor" style="animation: homepage-foot 1s ease;">
+                Next
+              </div>
+            </div>
           </div>
-          <p
-            style="animation: homepage-bg 1s ease;"
-            class="fs-xs title2 pl-5 ml-4  w-100"
-          >
-            {{ work.desc }}
-          </p>
-          <div
-            class="pt-4"
-            style="box-shadow: 0px 12px 10px -9px rgba(0,0,0,0.75);animation: homepage-foot 1s ease;"
-          >
-            <img width="300" src="../assets/swipe111.png" alt="" />
-          </div>
-        </div>
-      </swiper-slide>
-    </swiper>
-    <div
-      class="text-white pt-4 mt-3 changePage fs-sm fs-bold d-flex w-100 jc-around ai-center"
-    >
-      <div class="cursor" style="animation: homepage-foot 1s ease;">Prev</div>
-      <div class="cursor" style="animation: homepage-foot 1s ease;">Next</div>
+        </swiper-slide>
+      </swiper>
     </div>
+
     <div
-      class="d-flex ai-center jc-around pt-4"
+      class="seeProject bg-white w-100 d-flex ai-center jc-around"
       style="animation:opacityShow 1s ease"
     >
-      <span class="pt-1 fs-sm fs-bold">SEE PROJECT</span>
-      <div class="pt-1">
+      <span class="fs-sm fs-bold">SEE PROJECT</span>
+      <div class="">
         <div
           class="ml-4 arrow seeProjectArrow bg-blue d-flex ai-center jc-center"
         >
@@ -69,18 +89,34 @@ export default {
         {
           title: "仿王者荣耀官网",
           desc: "Vue + ElementUI + Express",
-          bgc:
-            "background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);"
+          bgc: "#111111",
+          techs: [
+            "使用NodeJS的Express框架搭建后台服务器",
+            "使用了MongoDB做数据库",
+            "使用了Vue的ElementUI框架做后台管理"
+          ]
         },
         {
           title: "口袋妖怪查询APP",
           desc: "Vue + Axios + LazyLoad",
-          bgc:
-            "background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);"
+          bgc: "#060b16",
+          techs: [
+            "使用Vue+Flex布局成应用界面",
+            "使用了Axios并单独封装成http以方便使用",
+            "使用了PokemonAPI并阅读文档使用",
+            "使用IntersectionObserver做获取数据时懒加载"
+          ]
         },
         {
           title: "倒计时页面",
-          desc: "HTML + CSS + JavaScript"
+          desc: "HTML + CSS + JavaScript",
+          bgc:"#022567",
+          techs: [
+            "使用HTML+Flex布局",
+            "使用CSS的媒体查询做了四层响应式布局",
+            "使用了npm-scss将scss转成css以便使用",
+            "使用原生JavaScript获取时间并设置倒计时"
+          ]
         }
       ]
     };
@@ -89,16 +125,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.changePage {
+.work {
+  position: relative;
+  height: 90%;
+  overflow: hidden;
+}
+.seeProject {
   position: absolute;
-  bottom: 180px;
+  height: 10%;
+  bottom: 0%;
+  left: 0;
   z-index: 1;
-  right: 50%;
-  transform: translateX(50%);
 }
 .swiper {
-  height: 80%;
 }
+
 .seeProjectArrow {
   width: 2.8rem;
   height: 2.8rem;

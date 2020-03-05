@@ -1,17 +1,29 @@
 @import "./variables";
+@import url("//at.alicdn.com/t/font_1673692_4uksicawd8j.css");
 //reset
 * {
   box-sizing: border-box;
   outline: none;
+  -webkit-overflow-scrolling: touch;
 }
 html {
+  @media only screen and (max-width: 320px){
+    font-size: 14px;
+  }
   font-size: 18px;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 body {
   margin: 0;
   padding: 0;
   line-height: 1.2em;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
   font-family: "Montserrat", arial, sans-serif;
+  user-select: none;
 }
 a {
   text-decoration: none;
@@ -185,6 +197,7 @@ p {
   }
   to {
     transform: translateY(0rem);
+    visibility: visible;
     opacity: 100%;
   }
 }
@@ -204,5 +217,22 @@ p {
   }
   to {
     opacity: 100%;
+  }
+}
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

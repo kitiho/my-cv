@@ -65,8 +65,12 @@ export default {
 @import "../assets/scss/style.scss";
 
 .nav {
-  position: relative;
-  height: 100vh;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  z-index: 998;
+  transition: all 0.8s ease;
   .mask {
     position: absolute;
     z-index: -30;
