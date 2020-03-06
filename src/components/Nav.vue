@@ -4,7 +4,7 @@
       class="nav-items fs-bold py-5 fs-lg d-flex flex-column jc-around ai-start px-4"
     >
       <div class="fs-xs pb-2 d-flex jc-between ai-center w-100">
-        <span>WHAT WE DO</span>
+        <span>KNOW ME FROM</span>
       </div>
       <div
         v-for="(item, i) in navItems"
@@ -25,19 +25,6 @@
             alt=""
         /></transition>
       </div>
-      <div
-        class="px-3 flex-1 mt-4 nav-items-discover d-flex ai-center jc-center"
-      >
-        <span class="fs-sm">DISCOVER MORE</span>
-        <div class="ml-4 arrow bg-blue d-flex ai-center jc-center">
-          <img
-            class="circle"
-            width="20"
-            src="../assets/rightArrow.png"
-            alt=""
-          />
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -53,8 +40,8 @@ export default {
   methods: {
     changeSite(item, i) {
       this.activeID = i;
-      this.$emit("closeNav");
-      this.$router.push(`/${item}`);
+      this.$store.commit("closeNav");
+      this.$router.push(`/${item.toLowerCase()}`);
     }
   }
 };

@@ -1,14 +1,14 @@
 <template>
   <div id="app" style="overflow:hidden" class="h-100">
-    <Toggle-button class="toggle cursor" @toggleNav="toggleNav" />
+    <Toggle-button class="toggle cursor" />
     <transition name="Nav">
       <Nav
         @closeNav="showNav = false"
-        v-show="showNav"
+        v-show="$store.state.isNavOpen"
         class="nav w-100 h-100"
       />
     </transition>
-    <div style="position:fixed;top:0;left:0" class="w-100 h-100">
+    <div style="position:fixed;top:0;left:0;" class="w-100 h-100">
       <router-view></router-view>
     </div>
   </div>
@@ -38,6 +38,7 @@ export default {
 
 
 <style lang="scss">
+@import "./assets/scss/style.scss";
 #app {
   position: relative;
   height: 100%;

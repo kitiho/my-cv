@@ -1,8 +1,11 @@
 <template>
   <div class="homepage text-white p-5  d-flex flex-column jc-around bg-blue">
-    <div class="homepage-title" style="animation:title 1.5s ease">
-      <span class="fs-lg fs-bold">Welcome </span>
-      <span class="fs-lg fs-bold">to my </span>
+    <div
+      class="homepage-title d-flex flex-column jc-around"
+      style="animation:title 1.5s ease"
+    >
+      <span class="fs-lg pb-1 fs-bold">Welcome </span>
+      <span class="fs-lg pb-1 fs-bold">to my </span>
       <span class="fs-lg fs-bold">Small Base</span>
     </div>
     <div
@@ -18,6 +21,7 @@
     <div
       class="homepage-foot d-flex ai-center"
       style="animation:homepage-foot 1s ease"
+      @click="toWork"
     >
       <span class="fs-sm fs-bold">SEE WORKS</span>
       <div
@@ -26,12 +30,11 @@
         <img width="20" src="../assets/arrow-blue.png" alt="" />
       </div>
     </div>
-    <div class="homepage-bg" style="overflow:hidden">
+    <div class="homepage-bg" style="overflow:hidden" >
       <img
         src="../assets/homepage.svg"
         width="210"
-        class="h-100"
-        style="animation:homepage-bg 1.3s ease;"
+        style="animation:homepage-bg 1s ease;"
         alt=""
       />
     </div>
@@ -60,6 +63,10 @@ export default {
       } else {
         this.index = this.index + 1;
       }
+    },
+    toWork() {
+      console.log(111);
+      this.$router.push("/work");
     }
   },
   mounted() {

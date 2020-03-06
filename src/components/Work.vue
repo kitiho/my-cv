@@ -55,25 +55,6 @@
         </swiper-slide>
       </swiper>
     </div>
-
-    <div
-      class="seeProject bg-white w-100 d-flex ai-center jc-around"
-      style="animation:opacityShow 1s ease"
-    >
-      <span class="fs-sm fs-bold">SEE PROJECT</span>
-      <div class="">
-        <div
-          class="ml-4 arrow seeProjectArrow bg-blue d-flex ai-center jc-center"
-        >
-          <img
-            class="circle"
-            width="18"
-            src="../assets/rightArrow.png"
-            alt=""
-          />
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -110,7 +91,7 @@ export default {
         {
           title: "倒计时页面",
           desc: "HTML + CSS + JavaScript",
-          bgc:"#022567",
+          bgc: "#022567",
           techs: [
             "使用HTML+Flex布局",
             "使用CSS的媒体查询做了四层响应式布局",
@@ -127,7 +108,7 @@ export default {
 <style lang="scss" scoped>
 .work {
   position: relative;
-  height: 90%;
+  height: 100%;
   overflow: hidden;
 }
 .seeProject {
